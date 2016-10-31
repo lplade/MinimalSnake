@@ -10,11 +10,11 @@ import java.util.*;
 
 public class Snake extends TimerTask implements KeyListener {
 
-    int height = 300; int width = 400;   //pixels
-    int squareSize = 50;
+    int height = 700; int width = 700;   //pixels
+    int squareSize = 20;
 
-    int xSquares = width/squareSize;
-    int ySquares = height/squareSize;
+    int xSquares = width/squareSize-1; //turning the windows decorators on requires a little adjustment to where the playfield boundary is
+    int ySquares = height/squareSize-2; //TODO actually get frame.getContentPane().getSize() and adjust collisions appropriately.
 
     int score = 0;
 
@@ -49,6 +49,7 @@ public class Snake extends TimerTask implements KeyListener {
                 frame.setResizable(false);
                 frame.addKeyListener(Snake.this);  //Add containing object as key listener
 
+
                 snakePanel = new SnakePanel();         // panel will contain graphics
                 frame.add(snakePanel);
 
@@ -65,7 +66,6 @@ public class Snake extends TimerTask implements KeyListener {
         public void paintComponent(Graphics g) {
 
             super.paintComponent(g);
-
             g.clearRect(0, 0, width, height);    //Clear panel, fill with black
             g.setColor(Color.BLACK);
             g.fillRect(0, 0, width, height);

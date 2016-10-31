@@ -44,7 +44,7 @@ public class Snake extends TimerTask implements KeyListener {
                 resetGame();    //also sets everything up
 
                 JFrame frame = new JFrame();   //create and configure GUI window
-                frame.setUndecorated(true);
+                frame.setUndecorated(false); // <-- It turns out you can't set this to true on Linux, or the window doesn't draw.
                 frame.setSize(width, height);
                 frame.setResizable(false);
                 frame.addKeyListener(Snake.this);  //Add containing object as key listener

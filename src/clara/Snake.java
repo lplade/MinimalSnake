@@ -137,8 +137,9 @@ public class Snake extends TimerTask implements KeyListener {
 
            //TODO remove below when wrap around is working
            if ((headX < 0 || headX > xSquares) || (headY < 0 || headY > ySquares)) {   //Head outside board? Snake hit wall, game over
-                gameOver = clockTicksToRestart;
-                return;
+               gameOver = clockTicksToRestart;
+               return;
+           }
 
 
             //TODO get the snake to wrap around the board
